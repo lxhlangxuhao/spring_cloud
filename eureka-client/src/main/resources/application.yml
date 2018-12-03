@@ -1,0 +1,13 @@
+server:
+  port: 7081
+
+spring:
+  application:
+    name: eureka-client
+
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7080/eureka

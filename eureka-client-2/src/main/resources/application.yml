@@ -1,0 +1,15 @@
+server:
+  port: 7082
+
+spring:
+  application:
+    name: eureka-client
+
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7080/eureka
+  instance:
+    prefer-ip-address: true #默认false显示的是主机名称,true显示真实ip地址

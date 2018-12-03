@@ -1,0 +1,14 @@
+server:
+  port: 7080
+#spring:
+#  security:
+#    user:
+#      name: haohao
+#      password: 123456
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
