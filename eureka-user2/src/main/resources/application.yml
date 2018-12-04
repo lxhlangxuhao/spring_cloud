@@ -1,0 +1,15 @@
+server:
+  port: 7084
+
+spring:
+  application:
+    name: eureka-user
+
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7080/eureka
+  instance:
+    prefer-ip-address: true

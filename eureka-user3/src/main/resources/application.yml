@@ -1,0 +1,22 @@
+server:
+  port: 7085
+
+spring:
+  application:
+    name: eureka-user
+
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7080/eureka
+  instance:
+    prefer-ip-address: true
+
+#客户端负载均衡模式为 随机模式
+#EUREKA-CLIENT:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
