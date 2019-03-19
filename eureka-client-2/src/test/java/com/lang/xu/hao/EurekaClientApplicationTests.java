@@ -1,4 +1,4 @@
-package com.lang.xu.hao.eurekaclient;
+package com.lang.xu.hao;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

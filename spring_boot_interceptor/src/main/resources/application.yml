@@ -1,0 +1,13 @@
+server:
+  port: 7088
+
+spring:
+  application:
+    name: spring_boot_interceptor
+
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7080/eureka

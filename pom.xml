@@ -12,6 +12,16 @@
         <module>eureka-server</module>
         <module>eureka-client</module>
 		<module>eureka-client-2</module>
+		<module>eureka-user</module>
+		<module>eureka-user2</module>
+		<module>eureka-user3</module>
+		<module>eureka-client-feign</module>
+		<module>eureka-client-feign-with-hystrix</module>
+		<module>eureka-client-feign-with-hystrix-factory</module>
+		<module>eureka-client-feign-configuration</module>
+		<module>spring_boot_interceptor</module>
+		<module>gateway_zuul</module>
+		<module>quartz</module>
     </modules>
 
 
@@ -35,15 +45,44 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!--<dependency>-->
+			<!--　　<groupId>org.springframework.cloud</groupId>-->
+			<!--　　<artifactId>spring-cloud-starter-hystrix</artifactId>-->
+			<!--<version>1.3.1.RELEASE</version>-->
+		<!--</dependency>-->
+		<!--hystrix-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-hystrix</artifactId>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-core</artifactId>-->
+			<!--<version>RELEASE</version>-->
+		<!--</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-feign</artifactId>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-hystrix</artifactId>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-zuul</artifactId>-->
+			<!--<version>1.3.1.RELEASE</version>-->
+		<!--</dependency>-->
 	</dependencies>
 
 	<dependencyManagement>
@@ -51,7 +90,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
+				<version>Greenwich.M3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -67,16 +106,16 @@
 		</plugins>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+	<!--<repositories>-->
+		<!--<repository>-->
+			<!--<id>spring-milestones</id>-->
+			<!--<name>Spring Milestones</name>-->
+			<!--<url>https://repo.spring.io/milestone</url>-->
+			<!--<snapshots>-->
+				<!--<enabled>false</enabled>-->
+			<!--</snapshots>-->
+		<!--</repository>-->
+	<!--</repositories>-->
 
 
 </project>

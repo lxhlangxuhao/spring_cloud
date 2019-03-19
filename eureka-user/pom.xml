@@ -16,6 +16,11 @@
 
 	<name>eureka-user</name>
 	<description>Demo project for Spring Boot</description>
+	<properties>
+
+		<hystrix-version>1.4.22</hystrix-version>
+
+	</properties>
 
 	<!--<parent>-->
 		<!--<groupId>org.springframework.boot</groupId>-->
@@ -46,6 +51,32 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-core</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-metrics-event-stream</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-javanica</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-servo-metrics-publisher</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
 	</dependencies>
 
 	<dependencyManagement>

@@ -1,10 +1,12 @@
-package com.lang.xu.hao.eurekaclient.controller;
+package com.lang.xu.hao.eurekaserver.controller;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
-import java.util.Set;
+import java.util.List;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +32,7 @@ public class TestController {
 	public String serviceUrl() {
 		InstanceInfo instance = discoveryClient.getNextServerFromEureka("EUREKA-CLIENT", false);
 
-			return instance.getHomePageUrl();
+		return instance.getHomePageUrl();
 	}
 
 	@RequestMapping("/test")
@@ -43,9 +45,21 @@ public class TestController {
 	@RequestMapping("/test2")
 	public String test2() {
 
+		//		UserMy[] forObject = restTemplate.getForObject("http://127.0.0.1:7080/test", UserMy[].class);
+		List<UserMy> forObject = restTemplate.getForObject("http://127.0.0.1:7080/test", List.class);
+		for (UserMy userMy : forObject) {
+			System.out.println(userMy);
 
-		return restTemplate.getForObject("http://EUREKA-CLIENT/test",String.class);
+		}
+		System.out.println();
+		return "";
 	}
 
+
+	@GetMapping(value = "/name/{name}")
+	public String test33(@PathVariable String name){
+
+		return name;
+	}
 
 }

@@ -1,4 +1,4 @@
-package com.lang.xu.hao.eurekaclient.config;
+package com.lang.xu.hao.eurekaserver.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @Author: Xuhao
- * @Description:
+ * FooConfiguration必须是@Configuration，但请注意，它不在主应用程序上下文的@ComponentScan中，否则将由所有@RibbonClients共享
  * @Date: Created in 14:11 2018/12/3
  */
 @Configuration
-public class TestConfiguration  {
-
+@SuppressWarnings("all")
+public class TestConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean

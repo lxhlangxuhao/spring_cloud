@@ -2,6 +2,11 @@ package com.lang.xu.hao.eurekauser.eurekaserver.controller;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
@@ -56,6 +61,28 @@ public class TestController {
 		System.out.println(choose.getHost()+":"+choose.getPort()+":"+choose.getServiceId());
 
 	}
+
+
+	public static void main(String[] args) {
+
+		ArrayList<String> strings = new ArrayList<String>(){
+			{
+				add("aaa");
+				add("bbb");
+				add("ccc");
+				add("ccc");
+			}
+		};
+
+		List<Integer> integers = Collections.nCopies(5, 0);
+		for (Integer i : integers) {
+			System.out.println(i);
+		}
+
+	}
+
+
+
 
 
 }
