@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description:
  * @Date: Created in 21:32 2019/1/19
  */
-//@Configuration
+@Configuration
 public class MemcachedConfiguration {
 
 	@Value("${memcache.server}")

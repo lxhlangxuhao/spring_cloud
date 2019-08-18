@@ -10,12 +10,17 @@
 	</parent>
 
 	<groupId>com.lang.xu.hao</groupId>
-	<artifactId>eureka-user2</artifactId>
+	<artifactId>eureka-user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>eureka-user2</name>
+	<name>eureka-user</name>
 	<description>Demo project for Spring Boot</description>
+	<properties>
+
+		<hystrix-version>1.4.22</hystrix-version>
+
+	</properties>
 
 	<!--<parent>-->
 		<!--<groupId>org.springframework.boot</groupId>-->
@@ -46,19 +51,45 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-core</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-metrics-event-stream</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-javanica</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>com.netflix.hystrix</groupId>-->
+			<!--<artifactId>hystrix-servo-metrics-publisher</artifactId>-->
+			<!--<version>${hystrix-version}</version>-->
+		<!--</dependency>-->
 	</dependencies>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+<!--	<dependencyManagement>-->
+<!--		<dependencies>-->
+<!--			<dependency>-->
+<!--				<groupId>org.springframework.cloud</groupId>-->
+<!--				<artifactId>spring-cloud-dependencies</artifactId>-->
+<!--				<version>${spring-cloud.version}</version>-->
+<!--				<type>pom</type>-->
+<!--				<scope>import</scope>-->
+<!--			</dependency>-->
+<!--		</dependencies>-->
+<!--	</dependencyManagement>-->
 
 	<build>
 		<plugins>

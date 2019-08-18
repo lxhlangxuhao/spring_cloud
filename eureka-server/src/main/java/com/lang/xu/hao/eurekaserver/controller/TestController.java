@@ -2,12 +2,15 @@ package com.lang.xu.hao.eurekaserver.controller;
 
 import com.lang.xu.hao.eurekaserver.SpringBean.BeanContainer;
 import com.lang.xu.hao.eurekaserver.SpringBean.User;
-import com.lang.xu.hao.eurekaserver.entity.UserMy;
 import com.whalin.MemCached.MemCachedClient;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +36,8 @@ public class TestController {
 	@Autowired
 	private User user;
 
+	@Resource
+	private RedisTemplate redisTemplate;
 
 	@RequestMapping("/test2")
 	public String test2() {
@@ -42,21 +47,29 @@ public class TestController {
 
 	}
 
-	@RequestMapping("/test")
-	public List<UserMy> test() {
+	@RequestMapping("/setKey")
+	public Object setKey(HttpServletRequest request, String key, String value) {
 
-		UserMy name = new UserMy("name", "01", 0.5D);
-		UserMy name2 = new UserMy("name2", "01", 0.5D);
-		UserMy name3 = new UserMy("name3", "01", 0.5D);
-		ArrayList<UserMy> userMIES = new ArrayList<UserMy>(){
-			{
-				add(name);
-				add(name2);
-				add(name3);
-			}
-		};
+		ValueOperations valueOperations = redisTemplate.opsForValue();
+		valueOperations.set(key,value);
 
-		return userMIES;
+		HttpSession session = request.getSession();
+		session.setAttribute(key, value);
+		return request.getSession().getId();
+	}
+
+	@RequestMapping("/getKey")
+	public Object getKey(HttpServletRequest request,String key) {
+
+		Object value = redisTemplate.opsForValue().get(key);
+		if (Objects.nonNull(value)) {
+			return value;
+		}
+		System.out.println("数据库中取值");
+
+		redisTemplate.opsForValue().set(key, "null", 30, TimeUnit.SECONDS);
+
+		return null;
 	}
 
 	@RequestMapping(value = "/head", method = RequestMethod.HEAD)
@@ -64,14 +77,6 @@ public class TestController {
 
 
 		return "aaaaaaaaa";
-	}
-
-
-	@RequestMapping("/getKey")
-	public Object getKey() {
-
-		memCachedClient.set("memcachaKey", "hello Memcached");
-		return memCachedClient.get("memcachaKey");
 	}
 
 

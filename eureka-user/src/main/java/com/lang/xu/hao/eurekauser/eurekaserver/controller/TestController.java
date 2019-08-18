@@ -1,8 +1,12 @@
 package com.lang.xu.hao.eurekauser.eurekaserver.controller;
 
+import com.lang.xu.hao.eurekauser.eurekaserver.lock.RedisLock;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import java.util.UUID;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
@@ -29,6 +33,9 @@ public class TestController {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	@Resource
+	private RedisLock redisLock;
+
 
 	@RequestMapping("/eureka-instance")
 	public String serviceUrl() {
@@ -38,9 +45,17 @@ public class TestController {
 	}
 
 	@RequestMapping("/test")
-	public String test() {
-		System.out.println("client1");
-		return "client1";
+	public Object test() throws InterruptedException {
+		// 获取锁
+		boolean lock = redisLock.lock("testKey", UUID.randomUUID().toString(), 50000, 2000);
+		if (lock) {
+			System.out.println("执行业务开始");
+			Thread.sleep(5000);
+			System.out.println("执行业务结束");
+			System.out.println(redisLock.unlock("testKey") ? "已解锁" : "未解锁");
+			return "已执行";
+		}
+		return "未执行";
 	}
 
 	public String hystrixFallbackMethod() {
@@ -49,7 +64,7 @@ public class TestController {
 	}
 
 	@RequestMapping("/test2")
-	@HystrixCommand(fallbackMethod = "hystrixFallbackMethod")
+//	@HystrixCommand(fallbackMethod = "hystrixFallbackMethod")
 	public String test2() {
 		System.out.println("托尔斯泰");
 
@@ -64,5 +79,18 @@ public class TestController {
 
 	}
 
+
+	@RequestMapping("/setKey")
+	public Object setKey(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("name", "小化工");
+		return request.getSession().getId();
+	}
+
+	@RequestMapping("/getKey")
+	public Object getKey2(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		return session.getAttribute("name");
+	}
 
 }
