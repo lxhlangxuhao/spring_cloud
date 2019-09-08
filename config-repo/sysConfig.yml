@@ -1,2 +1,2 @@
-foo = hello~ cloud config server
-name = langxuhao
+foo:hello~ cloud config server
+name:langxuhao
