@@ -1,14 +1,24 @@
+server:
+  port: 8887
+
 spring:
   application:
     name: cloud-config-client
   cloud:
     config:
-      label: master
-      profile: dev
-      uri: http://localhost:8880/
-server:
-  port: 8887
-
+      label: master # 指定访问某分支下的配置文件 默认为master
+      profile: dev # 一般作为环境标识 dev pro test
+      uri: http://config-server:8880/ # config-server 配置服务器的地址
+      discovery:
+        enabled: true # 开启通过服务名来访问config-server
+        service-id: config-server # 表示config-server的服务名
+      #  重试机制相关的配置
+      fail-fast: true # 远程配置时，立即失败，但是用下边的配置进行重试
+      retry:
+        max-attempts: 6 # 配置重试次数，默认为6
+        multiplier: 1.1 # 间隔乘数，默认1.1
+        initial-interval: 5000 # 初始重试间隔时间，默认1000ms
+        max-interval: 2000 # 最大间隔时间，默认2000ms
 
 eureka:
   client:
@@ -18,3 +28,7 @@ eureka:
       defaultZone: http://localhost:7080/eureka
   instance:
     prefer-ip-address: true
+
+management:
+  security:
+    enabled=false:

@@ -3,9 +3,12 @@ spring:
     name: cloud-config-client-2
   cloud:
     config:
-      label: master
-      profile: dev
-      uri: http://localhost:8880/
+      label: master # 指定访问某分支下的配置文件 默认为master
+      profile: dev # 一般作为环境标识 dev pro test
+      uri: http://config-server:8880/ # config-server 配置服务器的地址
+      discovery:
+        enabled: true # 开启通过服务名来访问config-server
+        service-id: config-server # 表示config-server的服务名
 server:
   port: 8886
 
