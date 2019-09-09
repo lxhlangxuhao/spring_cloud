@@ -5,11 +5,11 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lxhlangxuhao/spring_cloud
-          search-paths: config-repo
+          uri: https://github.com/lxhlangxuhao/spring-cloud-config
+          search-paths: cloud-config-client* # 指定搜索目录也可以 cloud-config-*
           username:
           password:
-      label: master
+      label: master # 对应Git仓库的分支名，默认为master
 
 server:
   port: 8880

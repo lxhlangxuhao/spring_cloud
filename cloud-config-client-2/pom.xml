@@ -9,9 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<name>cloud-config-client</name>
+	<name>cloud-config-client-2</name>
 	<groupId>com.lang.xu.hao</groupId>
-	<artifactId>cloud-config-client</artifactId>
+	<artifactId>cloud-config-client-2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
