@@ -12,15 +12,15 @@
         <module>eureka-server</module>
         <module>eureka-client-1</module>
 		<module>eureka-client-2</module>
-		<module>eureka-user_1</module>
-		<module>eureka-user_2</module>
-<!--		<module>eureka-user3</module>-->
+		<module>cloud-config-server</module>
+		<module>cloud-config-client</module>
+		<module>cloud-config-client-2</module>
 		<module>eureka-client-feign</module>
-		<module>eureka-client-feign-with-hystrix</module>
-		<module>eureka-client-feign-with-hystrix-factory</module>
-		<module>eureka-client-feign-configuration</module>
-		<module>spring_boot_interceptor</module>
-		<module>gateway_zuul</module>
+<!--		<module>eureka-client-feign-with-hystrix</module>-->
+<!--		<module>eureka-client-feign-with-hystrix-factory</module>-->
+<!--		<module>eureka-client-feign-configuration</module>-->
+<!--		<module>spring_boot_interceptor</module>-->
+<!--		<module>gateway_zuul</module>-->
 		<!--<module>quartz</module>-->
     </modules>
 
@@ -49,6 +49,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<!-- 分布式配置中心 -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-config-server</artifactId>-->
+<!--		</dependency>-->
 		<!--<dependency>-->
 			<!--　　<groupId>org.springframework.cloud</groupId>-->
 			<!--　　<artifactId>spring-cloud-starter-hystrix</artifactId>-->
@@ -70,6 +75,22 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- 开启分布式配置客户端 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
+		<!-- config-client 重试机制 start -->
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<!-- config-client 重试机制 end -->
 		<!--<dependency>-->
 			<!--<groupId>org.springframework.cloud</groupId>-->
 			<!--<artifactId>spring-cloud-starter-feign</artifactId>-->
