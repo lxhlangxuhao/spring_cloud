@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -12,22 +11,19 @@ import javax.validation.constraints.NotNull;
  * @Description:
  * @Date: Created in 23:59 2019/1/19
  */
-@ApiModel(value = "我的USER")
-public class UserMy implements Serializable{
+@ApiModel(value = "我的USER2222")
+public class UserMyResponse implements Serializable{
 
 	@ApiModelProperty(value = "姓名",required = true,notes = "sdasdasdasdasdasdasd")
-	@NotBlank(message = "名字不能为null")
 	private String name;
 
 	@ApiModelProperty(value = "部门",required = true)
-	@NotBlank(message = "部门不能为null")
 	private String department;
 
 	@ApiModelProperty(value = "分数", dataType = "Double")
-	@NotNull(message = "分数不能为null")
 	private Double score;
 
-	public UserMy(String name, String department, Double score) {
+	public UserMyResponse(String name, String department, Double score) {
 		this.name = name;
 		this.department = department;
 		this.score = score;

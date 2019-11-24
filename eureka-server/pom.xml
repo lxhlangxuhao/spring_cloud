@@ -29,16 +29,16 @@
 		</dependency>
 
 		<!-- memcached的java客户端 start -->
-		<dependency>
-			<groupId>com.googlecode.xmemcached</groupId>
-			<artifactId>xmemcached</artifactId>
-			<version>2.4.5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.whalin</groupId>
-			<artifactId>Memcached-Java-Client</artifactId>
-			<version>3.0.2</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.googlecode.xmemcached</groupId>-->
+<!--			<artifactId>xmemcached</artifactId>-->
+<!--			<version>2.4.5</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.whalin</groupId>-->
+<!--			<artifactId>Memcached-Java-Client</artifactId>-->
+<!--			<version>3.0.2</version>-->
+<!--		</dependency>-->
 		<!-- memcached的一个java客户端 end -->
 
 		<!-- spring boot devtools 依赖包. -->
@@ -65,6 +65,41 @@
 			<artifactId>jedis</artifactId>
 			<version>2.9.0</version>
 		</dependency>
+
+		<!-- swagger start -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<!-- swagger end -->
+
+
+		<!-- 整合mysql 使用德鲁伊数据源 start -->
+		<!-- mysql驱动包 -->
+<!--		<dependency>-->
+<!--			<groupId>mysql</groupId>-->
+<!--			<artifactId>mysql-connector-java</artifactId>-->
+<!--			<version>6.0.6</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-jdbc</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.alibaba</groupId>-->
+<!--			<artifactId>druid</artifactId>-->
+<!--			<version>1.1.4</version>-->
+<!--		</dependency>-->
+		<!-- 整合mysql 使用德鲁伊数据源 end -->
+
+
+
 
 	</dependencies>
 

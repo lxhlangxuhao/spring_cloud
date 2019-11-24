@@ -19,9 +19,11 @@
 <!--		<module>eureka-client-feign-with-hystrix</module>-->
 <!--		<module>eureka-client-feign-with-hystrix-factory</module>-->
 <!--		<module>eureka-client-feign-configuration</module>-->
-<!--		<module>spring_boot_interceptor</module>-->
+		<module>spring_boot_interceptor</module>
 <!--		<module>gateway_zuul</module>-->
 		<!--<module>quartz</module>-->
+		<module>spring_boot_quartz</module>
+		<module>spring_boot_quartz_2</module>
     </modules>
 
 
@@ -43,11 +45,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<!-- 分布式配置中心 -->
 <!--		<dependency>-->
@@ -76,10 +73,10 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- 开启分布式配置客户端 -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-starter-config</artifactId>-->
+<!--		</dependency>-->
 
 		<!-- config-client 重试机制 start -->
 		<dependency>
@@ -91,6 +88,14 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<!-- config-client 重试机制 end -->
+
+
+
+
+
+
+
+
 		<!--<dependency>-->
 			<!--<groupId>org.springframework.cloud</groupId>-->
 			<!--<artifactId>spring-cloud-starter-feign</artifactId>-->

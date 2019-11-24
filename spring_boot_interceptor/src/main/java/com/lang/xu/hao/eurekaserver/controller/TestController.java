@@ -22,10 +22,6 @@ public class TestController {
 	@Autowired
 	private EurekaClient discoveryClient;
 
-	@Autowired
-	private RestTemplate restTemplate;
-
-
 	@RequestMapping("/eureka-instance")
 	public String serviceUrl() {
 		InstanceInfo instance = discoveryClient.getNextServerFromEureka("EUREKA-CLIENT", false);
@@ -39,13 +35,6 @@ public class TestController {
 		return "test";
 	}
 
-
-	@RequestMapping("/test2")
-	public String test2() {
-
-
-		return restTemplate.getForObject("http://EUREKA-CLIENT/test", String.class);
-	}
 
 
 	@GetMapping(value = "/name/{name}")

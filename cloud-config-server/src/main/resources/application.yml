@@ -1,6 +1,10 @@
+server:
+  port: 8880
+
 spring:
   application:
     name: config-server
+
   cloud:
     config:
       server:
@@ -10,9 +14,18 @@ spring:
           username:
           password:
       label: master # 对应Git仓库的分支名，默认为master
+    # 消息总线
+    bus:
+      enabled: true
+      trace:
+        enabled: true
 
-server:
-  port: 8880
+#  rabbitmq:
+#    host: 39.105.147.99
+#    port: 5672
+#    username: guest
+#    password: guest
+
 
 eureka:
   client:
@@ -20,3 +33,10 @@ eureka:
         enabled: true
     serviceUrl:
       defaultZone: http://localhost:7080/eureka
+
+# 暴露端点 只需要加在服务端
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,bus-refresh
