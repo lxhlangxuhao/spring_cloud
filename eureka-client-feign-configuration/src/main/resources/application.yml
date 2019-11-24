@@ -1,0 +1,17 @@
+server:
+  port: 7087
+
+spring:
+  application:
+    name: eureka-client-feign-configuration
+#  main:
+#    allow-bean-definition-overriding: true
+
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7080/eureka
+# feign日志配置
+logging.level.com.lang.xu.hao.eurekaserver.controller: DEBUG

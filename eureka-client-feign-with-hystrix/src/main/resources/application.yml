@@ -1,0 +1,17 @@
+server:
+  port: 7089
+
+spring:
+  application:
+    name: eureka-client-feign-with-hystrix
+
+
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:7080/eureka
+feign:
+  hystrix:
+    enabled: true
