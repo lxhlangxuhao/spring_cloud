@@ -1,4 +1,4 @@
-package com.lang.xu.hao.eurekaserver.config;
+package com.lang.xu.hao.eurekaserver.config.nosql;
 
 /**
  * @Author: Xuhao

@@ -1,4 +1,4 @@
-//package com.lang.xu.hao.eurekaserver.nosql;
+//package com.lang.xu.hao.eurekaserver.config.nosql;
 //
 //import com.whalin.MemCached.MemCachedClient;
 //import com.whalin.MemCached.SockIOPool;

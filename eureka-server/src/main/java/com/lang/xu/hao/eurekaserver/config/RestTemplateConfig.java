@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
  * @Date: Created in 17:40 2018/12/2
  */
 @Configuration
-public class InitParam {
+public class RestTemplateConfig {
 
 //	@LoadBalanced
 	@Bean
