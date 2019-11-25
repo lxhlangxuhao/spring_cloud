@@ -10,9 +10,9 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 //@RibbonClient(name = "EUREKA-CLIENT", configuration = TestConfiguration.class)
 //@EnableCircuitBreaker
 @EnableRedisHttpSession
-public class EurekaUserTwoApplication {
+public class EurekaUser_2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaUserTwoApplication.class, args);
+		SpringApplication.run(EurekaUser_2Application.class, args);
 	}
 }
