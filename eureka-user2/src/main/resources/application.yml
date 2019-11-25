@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: eureka-user
+    name: eureka-user-2
 
   redis:
     password: 123456
