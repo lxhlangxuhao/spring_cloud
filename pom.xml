@@ -10,8 +10,9 @@
 
 	<modules>
         <module>eureka-server</module>
-        <module>eureka-client-1</module>
-		<module>eureka-client-2</module>
+        <module>eureka-user</module>
+		<module>eureka-user2</module>
+		<module>eureka-user3</module>
 		<module>cloud-config-server</module>
 		<module>cloud-config-client</module>
 		<module>cloud-config-client-2</module>
