@@ -1,5 +1,6 @@
 package com.lang.xu.hao.eurekaserver.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -16,5 +17,13 @@ public class RestTemplateConfig {
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
+	}
+
+	@Bean
+	@ConfigurationProperties(prefix = "spring.redis")
+	public RedisConfigTest redisConfigTest() {
+
+		return new RedisConfigTest();
+
 	}
 }

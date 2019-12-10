@@ -90,7 +90,12 @@
 		</dependency>
 		<!-- config-client 重试机制 end -->
 
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
+			<scope>provided</scope>
+		</dependency>
 
 
 
