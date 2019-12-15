@@ -10,8 +10,9 @@
 
 	<modules>
         <module>eureka-server</module>
-        <module>eureka-client-1</module>
-		<module>eureka-client-2</module>
+        <module>eureka-user</module>
+		<module>eureka-user2</module>
+		<module>eureka-user3</module>
 		<module>cloud-config-server</module>
 		<module>cloud-config-client</module>
 		<module>cloud-config-client-2</module>
@@ -89,7 +90,12 @@
 		</dependency>
 		<!-- config-client 重试机制 end -->
 
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
+			<scope>provided</scope>
+		</dependency>
 
 
 

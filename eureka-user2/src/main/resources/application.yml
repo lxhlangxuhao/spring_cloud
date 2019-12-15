@@ -3,12 +3,12 @@ server:
 
 spring:
   application:
-    name: eureka-user
+    name: eureka-user-2
 
   redis:
     password: 123456
     database: 0
-    host: 39.105.147.99
+    host: 127.0.0.1
     port: 6379
     timeout: 5000
     jedis:
