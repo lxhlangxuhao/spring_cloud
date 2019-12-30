@@ -20,7 +20,7 @@ public class RestTemplateConfig {
 	}
 
 	@Bean
-	@ConfigurationProperties(prefix = "spring.redis")
+	@ConfigurationProperties(prefix = "spring.redis", ignoreUnknownFields = false)
 	public RedisConfigTest redisConfigTest() {
 
 		return new RedisConfigTest();

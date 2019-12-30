@@ -12,7 +12,7 @@ spring:
       discovery:
         enabled: true # 开启通过服务名来访问config-server
         service-id: config-server # 表示config-server的服务名
-      #  重试机制相关的配置
+      # 重试机制相关的配置
       fail-fast: true # 远程配置时，立即失败，但是用下边的配置进行重试
       retry:
         max-attempts: 6 # 配置重试次数，默认为6

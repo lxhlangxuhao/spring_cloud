@@ -1,0 +1,47 @@
+server:
+  port: 7080
+#spring:
+#  security:
+#    user:
+#      name: haohao
+#      password: 123456
+spring:
+  application:
+    name: eureka-server
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://39.105.147.99:3306/lang?useUnicode=true&characterEncoding=UTF-8&useSSL=no
+#    username: root
+#    password: q1w2e3r4LXH!
+
+  redis:
+    password: 123456
+    database: 0
+    host: 106.13.191.132
+    port: 6379
+    #也可以配置list set 集合 propreties中写法 testList[0] = server1 testList[1] = server1 ....
+    testList:
+      - server1
+      - server2
+      - server3
+
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://106.13.191.132:7080/eureka
+
+
+#memcache:
+#  server: 39.105.147.99:11211
+#  failover: true
+#  initConn: 100
+#  minConn: 20
+#  maxConn: 1000
+#  maintSleep: 50
+#  nagel: false
+#  socketTO: 3000
+#  aliveCheck: true

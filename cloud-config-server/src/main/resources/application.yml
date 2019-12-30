@@ -20,11 +20,11 @@ spring:
       trace:
         enabled: true
 
-#  rabbitmq:
-#    host: 39.105.147.99
-#    port: 5672
-#    username: guest
-#    password: guest
+  rabbitmq:
+    host: 39.105.147.99
+    port: 5672
+    username: guest
+    password: guest
 
 
 eureka:

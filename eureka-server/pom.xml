@@ -105,17 +105,53 @@
 
 
 
-	<!-- 指定资源库 -->
-<!--	<repositories>-->
-<!--		<repository>-->
-<!--			<id>spring-milestones</id>-->
-<!--			<name>Spring Milestones</name>-->
-<!--			<url>https://repo.spring.io/milestone</url>-->
-<!--			<snapshots>-->
-<!--				<enabled>false</enabled>-->
-<!--			</snapshots>-->
-<!--		</repository>-->
-<!--	</repositories>-->
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+<!--			<properties>-->
+<!--				<profiles.active>dev</profiles.active>-->
+<!--				<swagger.scope>provided</swagger.scope>-->
+<!--				<mybatisgenerator.run>true</mybatisgenerator.run>-->
+<!--			</properties>-->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources/dev</directory>
+					</resource>
+					<resource>
+						<directory>src/main/resources</directory>
+<!--						<includes>-->
+<!--							<include>config/*</include>-->
+<!--							<include>mappings/**</include>-->
+<!--							<include>log4j2.xml</include>-->
+<!--						</includes>-->
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+		<profile>
+			<id>prod</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources/prod</directory>
+					</resource>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+	</profiles>
 
 
 </project>

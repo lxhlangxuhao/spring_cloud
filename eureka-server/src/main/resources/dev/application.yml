@@ -18,9 +18,13 @@ spring:
   redis:
     password: 123456
     database: 0
-    host: 127.0.0.1
+    host: 106.13.191.132
     port: 6379
-
+    #也可以配置list set 集合 propreties中写法 testList[0] = server1 testList[1] = server1 ....
+    testList:
+      - server1
+      - server2
+      - server3
 
 
 eureka:
