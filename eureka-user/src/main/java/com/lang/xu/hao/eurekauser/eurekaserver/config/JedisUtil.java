@@ -5,6 +5,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -2239,6 +2241,12 @@ public class JedisUtil{
 		if (jedis != null) {
 			jedisPool.returnResource(jedis);
 		}
+	}
+
+	public static void main(String[] args) {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDateTime begin = LocalDateTime.parse("2019-10-10", fmt);
+		System.out.println(begin);
 	}
 
 }

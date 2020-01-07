@@ -13,7 +13,6 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @Author: Xuhao
@@ -30,8 +29,6 @@ public class TestController {
 	@Autowired
 	private LoadBalancerClient loadBalancerClient;
 
-	@Autowired
-	private RestTemplate restTemplate;
 
 	@Resource
 	private RedisLock redisLock;
@@ -64,13 +61,6 @@ public class TestController {
 		return "000";
 	}
 
-	@RequestMapping("/test2")
-//	@HystrixCommand(fallbackMethod = "hystrixFallbackMethod")
-	public String test2() {
-		System.out.println("托尔斯泰");
-
-		return restTemplate.getForObject("http://EUREKA-CLIENT/test",String.class);
-	}
 
 	@RequestMapping("/test3")
 	public void test3(){
@@ -80,11 +70,10 @@ public class TestController {
 
 	}
 
-
 	@RequestMapping("/setKey")
-	public Object setKey(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		session.setAttribute("name", "小化工");
+	public Object setKey(HttpServletRequest request,HttpSession session) {
+		String name = request.getParameter("name");
+		session.setAttribute("name", name);
 		return request.getSession().getId();
 	}
 

@@ -29,23 +29,4 @@ public class RedisConfig {
 		redisTemplate.setHashValueSerializer(new StringRedisSerializer());
 		return redisTemplate;
 	}
-
-
-	/**配置其他类型的redisTemplate***/
-//	@Bean
-//	public RedisTemplate<Object, Object> redisTemplateKeyObject(RedisConnectionFactory redisConnectionFactory) {
-//		RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
-//		redisTemplate.setConnectionFactory(redisConnectionFactory);
-//		Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-//		ObjectMapper objectMapper = new ObjectMapper();
-//		objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-//		objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-//		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-//		objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-//		jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
-//		redisTemplate.setKeySerializer(new StringRedisSerializer());
-//		redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
-//		redisTemplate.afterPropertiesSet();
-//		return redisTemplate;
-//	}
 }
