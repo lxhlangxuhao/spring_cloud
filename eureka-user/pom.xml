@@ -15,42 +15,22 @@
 	<packaging>jar</packaging>
 
 	<name>eureka-user</name>
-	<description>Demo project for Spring Boot</description>
 	<properties>
-
 		<hystrix-version>1.4.22</hystrix-version>
-
 	</properties>
 
-	<!--<parent>-->
-		<!--<groupId>org.springframework.boot</groupId>-->
-		<!--<artifactId>spring-boot-starter-parent</artifactId>-->
-		<!--<version>2.1.1.RELEASE</version>-->
-		<!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-	<!--</parent>-->
-
-	<!--<properties>-->
-		<!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-		<!--<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
-		<!--<java.version>1.8</java.version>-->
-		<!--<spring-cloud.version>Greenwich.M3</spring-cloud.version>-->
-	<!--</properties>-->
-
 	<dependencies>
+		<!-- 热部署自动重启项目 devtools 依赖包. -->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional><!-- 防止使用项目将devtools传递性地应用于其他模块 -->
+			<scope>runtime</scope>
 		</dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
@@ -67,8 +47,46 @@
 			<artifactId>jedis</artifactId>
 			<version>2.9.0</version>
 		</dependency>
-	</dependencies>
+		<!-- 整合mysql 使用德鲁伊数据源 start -->
+		<!-- mysql驱动包 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+		<!-- 整合mysql 使用德鲁伊数据源 end -->
 
+		<!-- 分布式redis锁 -->
+		<!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>3.12.0</version>
+		</dependency>
+
+		<!-- memcached的java客户端 start -->
+		<!--		<dependency>-->
+		<!--			<groupId>com.googlecode.xmemcached</groupId>-->
+		<!--			<artifactId>xmemcached</artifactId>-->
+		<!--			<version>2.4.5</version>-->
+		<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>com.whalin</groupId>-->
+		<!--			<artifactId>Memcached-Java-Client</artifactId>-->
+		<!--			<version>3.0.2</version>-->
+		<!--		</dependency>-->
+		<!-- memcached的一个java客户端 end -->
+
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -78,17 +96,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 
 </project>
