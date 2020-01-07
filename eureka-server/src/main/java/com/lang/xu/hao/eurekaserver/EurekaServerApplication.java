@@ -11,6 +11,8 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 public class EurekaServerApplication {
 
 	public static void main(String[] args) {
+		// 禁用重新启动支持
+//		System.setProperty("spring.devtools.restart.enabled", "false");
 		SpringApplication.run(EurekaServerApplication.class, args);
 	}
 }

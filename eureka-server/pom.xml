@@ -15,40 +15,20 @@
 	<packaging>jar</packaging>
 	<name>eureka-server</name>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-<!--		<spring-cloud.version>Greenwich.M3</spring-cloud.version>-->
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-		<!-- memcached的java客户端 start -->
-<!--		<dependency>-->
-<!--			<groupId>com.googlecode.xmemcached</groupId>-->
-<!--			<artifactId>xmemcached</artifactId>-->
-<!--			<version>2.4.5</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.whalin</groupId>-->
-<!--			<artifactId>Memcached-Java-Client</artifactId>-->
-<!--			<version>3.0.2</version>-->
-<!--		</dependency>-->
-		<!-- memcached的一个java客户端 end -->
-
-		<!-- spring boot devtools 依赖包. -->
+		<!-- 热部署自动重启项目 devtools 依赖包. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional><!-- 这个需要为 true 热部署才有效 -->
-			<scope>true</scope>
+			<optional>true</optional><!-- 防止使用项目将devtools传递性地应用于其他模块 -->
+			<scope>runtime</scope>
 		</dependency>
 
+		<!-- redis 相关 start-->
 		<!-- redis 依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -65,6 +45,7 @@
 			<artifactId>jedis</artifactId>
 			<version>2.9.0</version>
 		</dependency>
+		<!-- redis 相关 end-->
 
 		<!-- swagger start -->
 		<dependency>
@@ -77,29 +58,12 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>swagger-bootstrap-ui</artifactId>
+			<version>1.9.6</version>
+		</dependency>
 		<!-- swagger end -->
-
-
-		<!-- 整合mysql 使用德鲁伊数据源 start -->
-		<!-- mysql驱动包 -->
-<!--		<dependency>-->
-<!--			<groupId>mysql</groupId>-->
-<!--			<artifactId>mysql-connector-java</artifactId>-->
-<!--			<version>6.0.6</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-jdbc</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba</groupId>-->
-<!--			<artifactId>druid</artifactId>-->
-<!--			<version>1.1.4</version>-->
-<!--		</dependency>-->
-		<!-- 整合mysql 使用德鲁伊数据源 end -->
-
-
-
 
 	</dependencies>
 
