@@ -4,3 +4,4 @@ spring cloud erueka 服务端
 2.新版swagger 可以分组
 3.自动加载配置文件封装成对象
 4.spring-boot-devtools 热部署自动重启项目
+5.不同环境的maven打包
