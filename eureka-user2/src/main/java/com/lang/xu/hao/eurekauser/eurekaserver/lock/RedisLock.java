@@ -6,7 +6,6 @@ package com.lang.xu.hao.eurekauser.eurekaserver.lock;
  * @Date: Created in 10:02 2019/8/15
  */
 
-import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.ReturnType;
@@ -71,7 +70,8 @@ public class RedisLock {
 	// 非阻塞获取锁
 	private boolean setLockToRedis(String key, String value,long expire) {
 //		String result = jedis.set(key, value, "NX", "PX", expire);  // jedis 方式
-		return redisTemplate.opsForValue().setIfAbsent(key, value, expire, TimeUnit.MILLISECONDS);
+//		return redisTemplate.opsForValue().setIfAbsent(key, value, expire, TimeUnit.MILLISECONDS);
+		return false;
 	}
 
 	public boolean unlock(String key) {

@@ -1,6 +1,5 @@
 package com.lang.xu.hao.eurekaserver.controller;
 
-import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,19 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: Created in 13:40 2018/12/1
  */
 @RestController
-public class TestController {
+public class HiController {
 
-	@Resource
-	private FeignService feignService;
+	@RequestMapping("/hi")
+	public String hi() {
 
-	@RequestMapping(value = "/getName")
-	public String test() {
-		return feignService.test("lang");
-
+		return "hi";
 	}
-
-
-
-
 
 }

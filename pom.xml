@@ -12,7 +12,6 @@
         <module>eureka-server</module>
         <module>eureka-user</module>
 		<module>eureka-user2</module>
-		<module>eureka-user3</module>
 		<module>cloud-config-server</module>
 		<module>cloud-config-client</module>
 		<module>cloud-config-client-2</module>
@@ -28,13 +27,13 @@
     </modules>
 
 
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

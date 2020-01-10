@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class HystrixClientFallback implements FeignService {
 
 	@Override
-	public String test(Integer name) {
+	public String test(String name) {
 		return "我挂掉了";
 	}
 }
