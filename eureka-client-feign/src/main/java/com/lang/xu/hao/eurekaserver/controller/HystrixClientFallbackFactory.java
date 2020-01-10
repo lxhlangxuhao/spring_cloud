@@ -15,7 +15,7 @@ public class HystrixClientFallbackFactory implements FallbackFactory<FeignServic
 	public FeignService create(Throwable throwable) {
 		return new FeignService() {
 			@Override
-			public String test(Integer name) {
+			public String test(String name) {
 				return "HystrixClientFallbackFactory";
 			}
 		};

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 // 支持占位符
-@FeignClient(value = "${eureka.client.one}", fallback = HystrixClientFallback.class)
+@FeignClient(value = "${eureka.client.one}", fallbackFactory = HystrixClientFallbackFactory.class)
 public interface FeignService {
 
 	//@PathVariable 必须设置value
