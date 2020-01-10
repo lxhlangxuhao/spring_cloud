@@ -16,12 +16,9 @@
 		<module>cloud-config-client</module>
 		<module>cloud-config-client-2</module>
 		<module>eureka-client-feign</module>
-<!--		<module>eureka-client-feign-with-hystrix</module>-->
-<!--		<module>eureka-client-feign-with-hystrix-factory</module>-->
 <!--		<module>eureka-client-feign-configuration</module>-->
 		<module>spring_boot_interceptor</module>
-<!--		<module>gateway_zuul</module>-->
-		<!--<module>quartz</module>-->
+		<module>gateway_zuul</module>
 		<module>spring_boot_quartz</module>
 		<module>spring_boot_quartz_2</module>
     </modules>

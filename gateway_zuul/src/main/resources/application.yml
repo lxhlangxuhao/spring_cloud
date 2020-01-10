@@ -13,8 +13,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:7080/eureka
 zuul:
+#  ignored-services: '*'
   routes:
     zuul-client:
       path: /client/**
       serviceId: eureka-client
+
 
