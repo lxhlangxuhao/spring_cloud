@@ -17,4 +17,11 @@ public class HiController {
 		return "hi";
 	}
 
+	@RequestMapping("/hi2")
+	public String hi2() throws InterruptedException {
+
+		Thread.sleep(2000);
+		return "hi2";
+	}
+
 }

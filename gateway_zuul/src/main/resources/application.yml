@@ -5,18 +5,60 @@ spring:
   application:
     name: eureka-client-feign
 
-
 eureka:
   client:
     healthcheck:
         enabled: true
     serviceUrl:
       defaultZone: http://localhost:7080/eureka
+
 zuul:
+  # 路由方式是url的 如下配置生效
+#  host:
+#    max-per-route-connections: 500
+#    socket-timeout-millis: 10000
+#    connect-timeout-millis: 10000
+  #开启匹配前缀
+  prefix: /api
+  strip-prefix: true
 #  ignored-services: '*'
   routes:
-    zuul-client:
-      path: /client/**
-      serviceId: eureka-client
+    eurekaUser:
+      path: /eureka-user/**
+      serviceId: eureka-user
+    eurekaClientFeign:
+      path: /eureka-client-feign/**
+      serviceId: eureka-client-feign
+  # 开启限流保护
+  ratelimit:
+    enabled: true
+    default-policy:
+      limit: 20
+      refresh-interval: 60
+
+#  eureka:
+#    enabled: false // ribbon禁掉Eureka
+
+
+
+# zuul的超时时间 请求超时会触发IZuulFallbackProvider
+# 如果路由方式是serviceId的方式，那么ribbon的生效
+# 如果是url的方式，则zuul.host开头的生效
+ribbon:
+  ReadTimeout: 1500
+  SocketTimeout: 2000
+
+
+
+# zuul配置了熔断fallback的话，熔断超时也要配置
+# 不然如果你配置的ribbon超时时间大于熔断的超时，那么会先走熔断，相当于你配的ribbon超时就不生效了
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
 
 

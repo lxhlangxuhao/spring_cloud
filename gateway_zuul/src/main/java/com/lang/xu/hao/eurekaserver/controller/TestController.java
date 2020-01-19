@@ -1,15 +1,7 @@
 package com.lang.xu.hao.eurekaserver.controller;
 
-import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.EurekaClient;
-import javax.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @Author: Xuhao
@@ -19,10 +11,9 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class TestController {
 
-	@RequestMapping("/test")
+	@RequestMapping("/hi")
 	public String test() {
-		System.out.println("client1");
-		return "client1";
+		return "hi";
 	}
 
 
