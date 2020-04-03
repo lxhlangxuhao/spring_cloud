@@ -13,17 +13,22 @@ spring:
 
   redis:
     password: 123456
-    database: 0
-    host: 106.13.191.132
-    port: 6379
     timeout: 5000
-    jedis:
-      pool:
-        max-active: 8
-        max-idle: 8
-        min-idle: 0
-        max-wait: 2000
-
+    cluster:
+      max-redirects: 3  # 获取失败 最大重定向次数
+      nodes:
+        - 106.13.191.132:7001
+        - 106.13.191.132:7002
+        - 106.13.191.132:7003
+        - 106.13.191.132:7004
+        - 106.13.191.132:7005
+        - 106.13.191.132:7006
+      lettuce:
+        pool:
+          max-active: 1000  #连接池最大连接数（使用负值表示没有限制）
+          max-idle: 10 # 连接池中的最大空闲连接
+          min-idle: 5 # 连接池中的最小空闲连接
+          max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
 eureka:
   client:
     healthcheck:
@@ -33,13 +38,3 @@ eureka:
   instance:
     prefer-ip-address: true
 
-#memcache:
-#  server: 39.105.147.99:11211
-#  failover: true
-#  initConn: 100
-#  minConn: 20
-#  maxConn: 1000
-#  maintSleep: 50
-#  nagel: false
-#  socketTO: 3000
-#  aliveCheck: true

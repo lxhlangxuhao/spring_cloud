@@ -6,20 +6,18 @@ package com.lang.xu.hao.eurekauser.eurekaserver.lock;
  * @Date: Created in 10:02 2019/8/15
  */
 
-import javax.annotation.Resource;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.ReturnType;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Component;
 import redis.clients.jedis.JedisPool;
 
-@Component
+//@Component
 public class RedisLock {
 
-	@Resource
+//	@Resource
 	private RedisTemplate redisTemplate;
 
-	@Resource
+//	@Resource
 	private JedisPool jedisPool;
 
 	private static final long DEFAULT_SLEEP_TIME = 100;  // 请求间隔

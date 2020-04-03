@@ -31,6 +31,12 @@
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 			<version>RELEASE</version>
 		</dependency>
+		<!-- redis 相关 start-->
+		<!-- redis 依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 		<!-- session redis 共享 -->
 		<dependency>
 			<groupId>org.springframework.session</groupId>
@@ -42,6 +48,7 @@
 			<artifactId>jedis</artifactId>
 			<version>2.9.0</version>
 		</dependency>
+		<!-- redis 相关 end-->
 		<!-- 整合mysql 使用德鲁伊数据源 start -->
 		<!-- mysql驱动包 -->
 		<dependency>

@@ -1,5 +1,6 @@
 package com.lang.xu.hao.eurekauser.eurekaserver.config;
 
+import javax.annotation.Resource;
 import org.redisson.Redisson;
 import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,23 +15,28 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RedissonConfig {
 
-	@Value("${spring.redis.host}")
-	private String redisHost;
-
-	@Value("${spring.redis.port}")
-	private String redisPort;
+	@Resource
+	private RedisConfig redisConfig;
 
 	@Value("${spring.redis.password}")
-	private String redisPassword;
+	private String password;
 
 	@Bean
 	public Redisson getRedisson() {
 
 		// use "rediss://" for SSL connection
-		String address = "redis://" + redisHost + ":" + redisPort;
+		// redisson版本是3.5，集群的ip前面要加上“redis://”，不然会报错，3.2版本可不加
+		for (int i = 0; i < redisConfig.getNodes().length; i++) {
+			redisConfig.getNodes()[i] = "redis://" + redisConfig.getNodes()[i];
+		}
 		Config config = new Config();
-		config.useSingleServer().setAddress(address).setPassword(redisPassword);
-
+		config.useClusterServers()
+				.addNodeAddress(redisConfig.getNodes())
+				.setPassword(password)
+				.setMasterConnectionMinimumIdleSize(10)
+				.setMasterConnectionPoolSize(64)
+				.setSlaveConnectionMinimumIdleSize(10)
+				.setSlaveConnectionPoolSize(64);
 		return (Redisson) Redisson.create(config);
 	}
 }
